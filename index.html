@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARAGE TB - Bengkel Helikopter, Tank & iPhone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #0a0e17;
+            --bg-card: #131b2e;
+            --accent-blue: #0066ff;
+            --accent-glow: rgba(0, 102, 255, 0.4);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* HEADER & NAVBAR */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-area img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--accent-blue);
+        }
+
+        .logo-sub {
+            font-size: 9px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-main);
+        }
+
+        .wa-btn-top {
+            background: var(--accent-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 15px var(--accent-glow);
+            transition: transform 0.2s;
+        }
+
+        .wa-btn-top:hover {
+            transform: scale(1.05);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            background: linear-gradient(rgba(10,14,23,0.7), rgba(10,14,23,0.9)), url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 140px 20px 60px;
+        }
+
+        .hero-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-badge-logo {
+            max-width: 320px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 38px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-blue);
+        }
+
+        .service-tags {
+            font-size: 15px;
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-cards-preview {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .mini-card {
+            background: rgba(19, 27, 46, 0.8);
+            border: 1px solid var(--border-color);
+            padding: 12px 18px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .mini-card i {
+            color: var(--accent-blue);
+            font-size: 20px;
+        }
+
+        .mini-card span {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .mini-card small {
+            display: block;
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .hero-right-img {
+            background: rgba(19, 27, 46, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .hero-right-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* SECTION LAYANAN */
+        .section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 15px;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .link-all {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .service-card-body {
+            padding: 15px;
+        }
+
+        .service-card-body h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-card-body p {
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        /* GALLERY GRID */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            height: 140px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.08);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #05080f;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-area">
+                <i class="fa-solid fa-helicopter fa-2x" style="color: var(--accent-blue);"></i>
+                <div>
+                    <div class="logo-text">GARAGE <span>TB</span></div>
+                    <span class="logo-sub">BENGKEL HELIKOPTER & TANK</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Tentang</a></li>
+                <li><a href="#">Layanan</a></li>
+                <li><a href="#">Galeri</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+            <a href="https://wa.me/6288225604848" class="wa-btn-top" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div>
+                <div class="service-tags">Service • Maintenance • Repair</div>
+                <h1>GARAGE <span>TB</span></h1>
+                <p>Spesialis perawatan, perbaikan, restorasi, dan troubleshooting berbagai perangkat teknik, sekaligus melayani iPhone Repair, Board Repair & Microsoldering.</p>
+                
+                <div class="hero-cards-preview">
+                    <div class="mini-card">
+                        <i class="fa-solid fa-helicopter"></i>
+                        <div>
+                            <span>Helikopter</span>
+                            <small>Maintenance</small>
+                        </div>
+                    </div>
+                    <div class="mini-card">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div>
+                            <span>Tank</span>
+                            <small>Specialist</small>
+                        </div>
+                    </div>
+                    <div class="mini-card">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <div>
+                            <span>iPhone</span>
+                            <small>Micro Repair</small>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/6288225604848" class="wa-btn-top" style="display: inline-flex; width: fit-content;">
+                    <i class="fa-brands fa-whatsapp"></i> KONSULTASI VIA WHATSAPP
+                </a>
+            </div>
+
+            <div class="hero-right-img">
+                <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80" alt="Garage Workshop">
+            </div>
+        </div>
+    </section>
+
+    <!-- LAYANAN KAMI -->
+    <section class="section">
+        <div class="section-header">
+            <div>
+                <h2>LAYANAN KAMI</h2>
+                <p>Solusi lengkap untuk kebutuhan teknik dan perangkat Anda.</p>
+            </div>
+            <a href="#" class="link-all">Lihat Semua Layanan &rarr;</a>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=500&q=80" alt="Helikopter">
+                <div class="service-card-body">
+                    <h3><i class="fa-solid fa-helicopter" style="color:var(--accent-blue)"></i> Helikopter</h3>
+                    <p>Maintenance, Repair, Overhaul</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=500&q=80" alt="Tank">
+                <div class="service-card-body">
+                    <h3><i class="fa-solid fa-shield-halved" style="color:var(--accent-blue)"></i> Tank</h3>
+                    <p>Maintenance & Restorasi</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=500&q=80" alt="iPhone">
+                <div class="service-card-body">
+                    <h3><i class="fa-solid fa-mobile-screen" style="color:var(--accent-blue)"></i> iPhone Service</h3>
+                    <p>Software, Hardware, Microsoldering</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&w=500&q=80" alt="Board Repair">
+                <div class="service-card-body">
+                    <h3><i class="fa-solid fa-microchip" style="color:var(--accent-blue)"></i> Board Repair</h3>
+                    <p>IC, Emmc, Logic Board Repair</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI WORKSHOP -->
+    <section class="section">
+        <div class="section-header">
+            <div>
+                <h2>GALERI WORKSHOP</h2>
+                <p>Dokumentasi kegiatan dan fasilitas kami di GARAGE TB.</p>
+            </div>
+            <a href="#" class="link-all">Lihat Semua Galeri &rarr;</a>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80" alt="Workshop 1"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=400&q=80" alt="Workshop 2"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80" alt="Workshop 3"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=400&q=80" alt="Workshop 4"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 GARAGE TB. All rights reserved. Precision Builds Performance.</p>
+    </footer>
+
+</body>
+</html>
